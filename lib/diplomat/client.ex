@@ -3,6 +3,7 @@ defmodule Diplomat.Client do
   require Logger
 
   @api_version "v1beta2"
+  # @api_version "v1beta3"
 
   def allocate_ids(req) do
     req
@@ -22,13 +23,13 @@ defmodule Diplomat.Client do
     |> Diplomat.Proto.CommitRequest.encode
     |> call("commit")
     |> case do
-      {:ok, body} ->
-        IO.puts "The response body: #{inspect body}"
-        decoded = Diplomat.Proto.CommitResponse.decode(body)
-        {:ok, decoded}
-      any ->
-        IO.puts "bad response: #{inspect any}"
-        any
+         {:ok, body} ->
+           IO.puts "a good response: #{inspect body}"
+           decoded = Diplomat.Proto.CommitResponse.decode(body)
+           {:ok, decoded}
+         any ->
+           IO.puts "the bad response: #{inspect any}"
+           any
     end
   end
 
