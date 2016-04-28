@@ -16,8 +16,9 @@ syntax = "proto3";
 
 package google.datastore.v1beta3;
 
-// import "google.golang.org/cloud/datastore/internal/proto/entity.proto";
-// import "google.golang.org/cloud/datastore/internal/proto/query.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/wrappers.proto";
 
 // A partition ID identifies a grouping of entities. The grouping is always
 // by project and namespace, however the namespace ID may be empty.
